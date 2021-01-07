@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog">
+    <TextView
+        android:id="@+id/title"
+        android:text="重命名"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="16dp"
+        android:textColor="@color/TestColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/et_text"
+        android:layout_below="@+id/title"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true"
+        android:focusable="true"
+        android:textSize="14dp"
+        android:hint="请输入视频名称"
+        android:theme="@style/MyEditText"
+        android:layout_gravity="center"
+        android:textSelectHandle="@drawable/none"
+        android:background="@drawable/et_file_change_text"/>
+    <Button
+        android:id="@+id/btn_cancel_change_title"
+        android:layout_below="@+id/et_text"
+        android:layout_toLeftOf="@+id/btn_certain_change_title"
+        android:layout_marginRight="20dp"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="取消"
+        android:textSize="12dp"
+        android:background="@color/white"
+        android:textColor="@color/text_color"
+        android:stateListAnimator="@null"/>
+
+    <Button
+        android:id="@+id/btn_certain_change_title"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/et_text"
+        android:layout_alignRight="@+id/et_text"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:layout_marginTop="20dp"
+        android:text="确定"
+        android:textColor="@color/orange"
+        android:stateListAnimator="@null"
+        android:textSize="12dp" />
+</RelativeLayout>

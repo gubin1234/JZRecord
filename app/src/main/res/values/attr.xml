@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="nodeseekbar_attrs">
+        <attr name="node_number" format="integer" />
+        <attr name="node_radius" format="integer" />
+        <attr name="node_color" format="color" />
+        <attr name="progressbar_rod_bg" format="reference|color" />
+        <attr name="progressbar_text_bg" format="reference|color" />
+    </declare-styleable>
+    <declare-styleable name="RoundCornerImageView">
+        <attr name="radius" format="dimension" />
+        <attr name="left_top_radius" format="dimension" />
+        <attr name="right_top_radius" format="dimension" />
+        <attr name="right_bottom_radius" format="dimension" />
+        <attr name="left_bottom_radius" format="dimension" />
+    </declare-styleable>
+</resources>

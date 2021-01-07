@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!--标题-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp">
+            <TextView
+                android:id="@+id/video_params"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="录屏参数"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+        <!--横线-->
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/setting_line"/>
+        <!--分辨率滑块-->
+        <com.jx.jzrecord.setting.CustomNodeSeekBar
+            android:id="@+id/nodeseekbar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="15dp"
+            android:max="100"
+            android:maxHeight="2dp"
+            android:minHeight="2dp"
+            android:progress="75"
+            android:progressDrawable="@drawable/bg_setting_seekbar"
+            android:thumb="@drawable/thumb" />
+        <!--码率滑块-->
+        <com.jx.jzrecord.setting.CustomNodeSeekBar
+            android:id="@+id/bitrate_bar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="15dp"
+            android:max="100"
+            android:minHeight="2dp"
+            android:maxHeight="2dp"
+            android:progress="67"
+            android:progressDrawable="@drawable/bg_setting_seekbar"
+            android:thumb="@drawable/thumb" />
+        <!--帧率滑块-->
+        <com.jx.jzrecord.setting.CustomNodeSeekBar
+            android:id="@+id/frame_rate_bar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="15dp"
+            android:max="100"
+            android:minHeight="2dp"
+            android:maxHeight="2dp"
+            android:progress="40"
+            android:progressDrawable="@drawable/bg_setting_seekbar"
+            android:thumb="@drawable/thumb" />
+
+        <TextView
+            android:id="@+id/params_statement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="分辨率越高越清晰，码率越高画质越好、帧率越高画面越流畅。"
+            android:textSize="10dp"
+            android:textColor="#999999"/>
+
+        <Button
+            android:id="@+id/ok_button"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/btn_setting_quit"
+            android:text="确认"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <layer-list>
+            <item android:drawable="@drawable/mainicon_ok" android:width="25dp" android:height="18dp"></item>
+        </layer-list>
+    </item>
+    <item android:state_checked="false">
+        <layer-list>
+            <item android:drawable="@drawable/mainicon_no" android:width="25dp" android:height="18dp"></item>
+        </layer-list>
+    </item>
+<!--    <item android:drawable="@drawable/mainicon_ok" android:state_checked="true"/>-->
+<!--    <item android:drawable="@drawable/mainicon_no" />-->
+</selector>

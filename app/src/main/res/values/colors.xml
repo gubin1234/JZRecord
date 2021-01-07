@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F75F1D</color>
+    <color name="colorPrimaryDark">#F75F1D</color>
+    <color name="colorAccent">#F75F1D</color>
+    <color name="fsk_green">#09BB07</color>
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#EBBEBEBE</color>
+    <color name="textColorHint">#D3D7D9</color>
+    <color name="orange">#F75F1D</color>
+    <color name="TestColor">#222222</color>
+    <color name="codecolor">#D3D7D9</color>
+    <color name="fsk_base_bg">#8C8C8C</color>
+    <color name="black">#222222</color>
+    <color name="text_color">#999999</color>
+    <color name="setting_line">#EEEEEE</color>
+    <color name="et_color">#d4d7d9</color>
+    <color name="cursor_green">#03DAC5</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="upgrade_color">#81000000</color>
+</resources>

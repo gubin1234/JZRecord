@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".setting.ActivityAboutUs">
+    <LinearLayout
+        android:id="@+id/title"
+        style="@style/top_title_style"
+        android:background="#F75F1D">
+        <LinearLayout
+            android:id="@+id/btn_about_back"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            >
+            <ImageView
+                android:layout_width="9dp"
+                android:layout_height="16dp"
+                android:background="@drawable/backicon"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                />
+        </LinearLayout>
+        <!-- 标题 -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/about_us"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp" />
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="@null" />
+    </LinearLayout>
+
+    <com.jx.jzrecord.Fragment.RadiuImageView
+        android:id="@+id/img_logo"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        app:radius="10dp"
+        android:src="@mipmap/logo_launcher"/>
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_logo"
+        android:layout_marginTop="20dp"
+        android:text="金舟录屏大师"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:textColor="#222222"/>
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:layout_marginTop="14dp"
+        android:text="版本号：V1.3.1"
+        android:gravity="center"
+        android:textSize="14dp"
+        android:textColor="#999999"/>
+    <TextView
+        android:id="@+id/tv_qq_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_version"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="29dp"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/company"
+        android:layout_alignParentBottom="true"
+        android:textColor="#999999"
+        android:layout_marginBottom="55dp"/>
+    <TextView
+        android:id="@+id/tv_user_agreement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"/>
+</RelativeLayout>

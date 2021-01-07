@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/fragment_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tabs_rg" />
+
+    <RadioGroup
+        android:id="@+id/tabs_rg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#F3F1F1"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/today_tab"
+            style="@style/Custom.TabRadioButton"
+            android:checked="true"
+            android:drawableTop="@drawable/tab_main_selector"
+            android:paddingTop="9dp"
+            android:paddingBottom="4dp"
+            android:background="@null"
+            android:text="首页" />
+
+        <RadioButton
+            android:id="@+id/record_tab"
+            style="@style/Custom.TabRadioButton"
+            android:drawableTop="@drawable/tab_file_selector"
+            android:paddingTop="9dp"
+            android:paddingBottom="3dp"
+            android:background="@null"
+            android:text="视频文件"
+            />
+    </RadioGroup>
+</RelativeLayout>

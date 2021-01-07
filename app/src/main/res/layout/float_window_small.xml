@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/small_window_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+    <ImageView
+        android:id="@+id/percent"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/small_xfc"
+        android:src="@drawable/window_small" />
+</LinearLayout>

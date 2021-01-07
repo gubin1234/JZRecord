@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.percentlayout.widget.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            app:layout_widthPercent="100%"
+            app:layout_heightPercent="6.8%"
+            android:orientation="horizontal"
+            android:background="#F75F1D">
+                <LinearLayout
+                    android:id="@+id/register_back_login"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_heightPercent="100%"
+                    app:layout_widthPercent="10%"
+                   >
+                <ImageView
+                    android:layout_width="9dp"
+                    android:layout_height="16dp"
+                    android:background="@drawable/backicon"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                   />
+                </LinearLayout>
+                <!-- 登录 -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="登录"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16dp"
+                    app:layout_widthPercent="100%"
+                    app:layout_heightPercent="100%"/>
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+        <EditText
+            android:id="@+id/et_register_username_id"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_widthPercent="100%"
+            app:layout_heightPercent="6.45%"
+            android:background="@drawable/testview"
+            android:hint="请输入手机号或邮箱号"
+            android:paddingLeft="11dp"
+            app:layout_marginTopPercent="16.7%"
+            app:layout_marginLeftPercent="8.3%"
+            app:layout_marginRightPercent="8.3%"
+            app:layout_marginBottomPercent="10%"
+            android:textColorHint="@color/textColorHint"
+            android:textSize="14dp"
+             />
+        <EditText
+            android:id="@+id/et_register_code_id"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_widthPercent="50%"
+            app:layout_heightPercent="6.45%"
+            android:background="@drawable/testview"
+            android:hint="请输入验证码"
+            android:paddingLeft="11dp"
+            app:layout_marginTopPercent="26.45%"
+            app:layout_marginLeftPercent="8.3%"
+            android:textColorHint="@color/textColorHint"
+            android:textSize="14dp"
+            />
+        <Button
+            android:id="@+id/bt_getcode_id"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_widthPercent="30.55%"
+            app:layout_heightPercent="6.45%"
+            android:background="@drawable/codeview"
+            android:text="获取验证码"
+            app:layout_marginTopPercent="26.45%"
+            app:layout_marginLeftPercent="61.1%"
+            app:layout_marginRightPercent="8.3%"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            android:enabled="false"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_marginTopPercent="35.2%"
+            app:layout_marginLeftPercent="7%"
+            >
+        <!-- 小对勾的布局 -->
+                <CheckBox
+                    android:id="@+id/checkbox"
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:scaleX="0.7"
+                    android:scaleY="0.7"
+                    android:layout_gravity="center"
+                    />
+        <TextView
+            android:id="@+id/TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_widthPercent="100%"
+            app:layout_heightPercent="6.45%"
+            android:background="@drawable/btnview"
+            android:text="登录"
+            app:layout_marginTopPercent="47.6%"
+            app:layout_marginLeftPercent="22.2%"
+            app:layout_marginRightPercent="22.2%"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:id="@+id/user_info_loading"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_heightPercent="10%"
+            app:layout_marginTopPercent="56%"
+            android:orientation="vertical"
+            android:visibility="invisible" >
+                <ProgressBar
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    />
+                <TextView
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="登录验证中，请稍后......"
+                    android:textSize="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/other_login_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_marginTopPercent="71.1%"
+            app:layout_marginLeftPercent="8.3%"
+            app:layout_marginRightPercent="8.3%"
+            >
+        <!--        横线-->
+        <View  android:layout_height="1px"
+            android:layout_width="0dp"
+            android:layout_weight="1.4"
+            android:background="@color/grey"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="其他登录方式"
+            android:textColor="@color/TestColor"
+            android:textSize="12dp" />
+
+              <!--        横线-->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_weight="1.4"
+            android:background="@color/grey"
+            android:layout_gravity="center" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_WXLogin"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/wxlogin"
+            android:layout_below="@+id/other_login_layout"
+            app:layout_marginTopPercent="3.2%"
+            android:layout_centerHorizontal="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_WXLogin"
+            android:text="微信登录"
+            app:layout_marginTopPercent="1%"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/TestColor"
+            android:textSize="12dp" />
+</androidx.percentlayout.widget.PercentRelativeLayout>

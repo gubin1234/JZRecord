@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+    android:id="@+id/big_window_layout"
+    android:layout_width="140dp"
+    android:layout_height="140dp"
+    android:background="@drawable/bg_xfc"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:id="@+id/use1"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_centerInParent="true" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_above="@+id/use1"
+        android:orientation="vertical"
+        android:layout_marginBottom="1dp"
+        >
+    <Button
+        android:id="@+id/big_home"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/window_homepage_icon" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="主页"
+        android:textColor="@color/white"
+        android:layout_marginTop="4dp"
+        android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/use1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginEnd="10dp">
+    <Button
+        android:id="@+id/screen_vertical"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/window_vscreen_icon" />
+    <TextView
+        android:id="@+id/textuse3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="竖屏录制"
+        android:textSize="8dp"
+        android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_toEndOf="@+id/use1"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp">
+    <Button
+        android:id="@+id/screen_horizontal"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/window_hscreen_icon" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="8dp"
+        android:textColor="@color/white"
+        android:text="横屏录制" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/use1"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:layout_marginTop="1dp">
+    <Button
+        android:id="@+id/big_hide"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/window_hide_icon" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="隐藏"
+        android:textSize="8sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="4dp" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+ <ImageView
+     android:layout_width="match_parent"
+     android:layout_height="0dp"
+     android:layout_weight="84.4"
+     android:background="@mipmap/bg_launcher_title"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15.6">
+    <ImageView
+        android:layout_width="148dp"
+        android:layout_height="36dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/welcome_bottom_icon"/>
+    </RelativeLayout>
+</LinearLayout>

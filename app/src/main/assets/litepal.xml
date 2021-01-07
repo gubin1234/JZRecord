@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<litepal>
+    <dbname value="Video_Setting"/>
+    <version value="1"/>
+    <list>
+        <mapping class="com.jx.jzrecord.setting.bean.BeanParams"/>
+        <mapping class="com.jx.jzrecord.setting.bean.BeanSettings"/>
+        <mapping class="com.jx.jzrecord.setting.bean.BeanFiles"/>
+    </list>
+</litepal>

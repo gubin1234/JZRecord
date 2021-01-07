@@ -1,0 +1,4 @@
+include ':ProductService'
+include ':FindFile'
+include ':app'
+rootProject.name = "JZRecord"

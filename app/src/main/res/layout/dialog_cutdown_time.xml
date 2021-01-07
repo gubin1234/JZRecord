@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+    <TextView
+        android:id="@+id/tv_cut_down_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="倒计时"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+    <RadioGroup
+        android:id="@+id/rg_cut_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tv_cut_down_time">
+        <RadioButton
+            android:id="@+id/btn_non"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/radiobutton_no"
+            android:button="@null"
+            android:background="@null"
+            android:text="无"
+            android:textSize="12dp"
+            android:drawablePadding="10dp"/>
+        <RadioButton
+            android:id="@+id/btn_3s"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_non"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/radiobutton_no"
+            android:button="@null"
+            android:background="@null"
+            android:text="3s"
+            android:textSize="12dp"
+            android:drawablePadding="10dp"/>
+
+        <RadioButton
+            android:id="@+id/btn_5s"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/btn_3s"
+            android:background="@null"
+            android:button="@null"
+            android:drawableLeft="@drawable/radiobutton_no"
+            android:text="5s"
+            android:textSize="12dp"
+            android:drawablePadding="10dp" />
+
+        <RadioButton
+            android:id="@+id/btn_10s"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/btn_5s"
+            android:drawableLeft="@drawable/radiobutton_no"
+            android:button="@null"
+            android:background="@null"
+            android:text="10s"
+            android:textSize="12dp"
+            android:drawablePadding="10dp"/>
+    </RadioGroup>
+</RelativeLayout>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".recording.ActivityMain">
+        <!--   标题栏-->
+        <LinearLayout style="@style/top_title_style">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:id="@+id/ll_main_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+                    <com.jx.jzrecord.Fragment.CircleImageView
+                        android:id="@+id/login_HeadImg"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:layout_marginStart="15dp"
+                        android:visibility="gone"
+                        android:layout_gravity="center"
+                       />
+                    <ImageView
+                        android:id="@+id/unlogin_HeadImg"
+                        android:layout_width="14dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="15dp"
+                        android:background="@drawable/userlogin"
+                        android:visibility="visible"/>
+                    <TextView
+                        android:id="@+id/tv_main_login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="5dp"
+                        android:text="登录"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="@string/home_title_name"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_main_kefu"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:gravity="end">
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/kefu_icon" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/ib_set"
+                    android:layout_width="18dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/set_icon" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--悬浮窗按钮-->
+        <RelativeLayout
+            android:id="@+id/float_window_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16.5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toStartOf="@+id/start_float_window"
+                android:text="悬浮窗"
+                android:textSize="14dp"
+                android:textColor="@color/TestColor"
+                />
+            <Switch
+                android:id="@+id/start_float_window"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@null"
+                android:thumb="@drawable/switch_white_circle_selector"
+                android:track="@drawable/switch_selector_green" />
+        </RelativeLayout>
+
+        <!--计时-->
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="67.5dp"
+            android:text="00:00:00"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="49.5dp"
+            android:background="@drawable/screenbtn">
+
+            <Button
+                android:id="@+id/btn_recorder_start"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="40dp"
+                android:background="@drawable/screen_start"
+                android:visibility="visible" />
+
+            <RelativeLayout
+                android:id="@+id/main_screen_layout"
+                android:layout_width="163dp"
+                android:layout_height="163dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="0.5dp"
+                android:background="@drawable/circle"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/main_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+
+                <ImageButton
+                    android:id="@+id/ib_pause_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="24dp"
+                    android:layout_toStartOf="@+id/main_text_view"
+                    android:background="@drawable/pause_icon"
+                    android:visibility="visible" />
+
+                <ImageButton
+                    android:id="@+id/ib_continue_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="24dp"
+                    android:layout_toStartOf="@+id/main_text_view"
+                    android:background="@drawable/start_icon"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/ib_stop_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="24dp"
+                    android:layout_toEndOf="@+id/main_text_view"
+                    android:background="@drawable/stop_icon" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!--录屏方式按钮-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/vertical_screen"
+                android:layout_width="50dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:background="@drawable/screen_vertical_orange"
+                android:text="竖屏"
+                android:textColor="@color/white"
+                android:textSize="12dp" />
+            <Button
+                android:id="@+id/horizontal_screen"
+                android:layout_width="50dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:background="@drawable/screen_horizontal_grey"
+                android:text="横屏"
+                android:textColor="@color/white"
+                android:textSize="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

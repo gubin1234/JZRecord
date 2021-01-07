@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--   标题栏-->
+    <LinearLayout style="@style/top_title_style">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <LinearLayout
+                android:id="@+id/ll_noNet_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/userlogin" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:text="登录"
+                    android:textColor="@color/white"
+                    android:textSize="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:text="@string/home_title_name"
+            android:textColor="@color/white"
+            android:textSize="17dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/NoNetKeFuBtn"
+                android:layout_width="13dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/kefu_icon" />
+
+            <ImageButton
+                android:id="@+id/NoNetSetBtn"
+                android:layout_width="18dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/set_icon" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_kefu"
+            android:layout_width="22dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="11dp"
+            android:background="@drawable/kefu_icon" />
+
+        <ImageButton
+            android:id="@+id/ib_set"
+            android:layout_width="23dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/set_icon" />
+    </LinearLayout>
+        <ImageView
+            android:id="@+id/NoNetLogo"
+            android:layout_width="190dp"
+            android:layout_height="195dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/no_net_logo"
+           />
+      <TextView
+          android:id="@+id/NoNetTest"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/NoNetLogo"
+          android:layout_centerHorizontal="true"
+          android:layout_marginBottom="10dp"
+          android:text="暂无网络~"
+          android:textSize="14dp"
+          android:textColor="@color/black"/>
+
+     <Button
+         android:id="@+id/NoNetRepeatBtn"
+         android:layout_width="100dp"
+         android:layout_height="30dp"
+         android:layout_below="@+id/NoNetTest"
+         android:layout_centerHorizontal="true"
+         android:text="重新加载"
+         android:textColor="@color/white"
+         android:textSize="14dp"
+         android:background="@drawable/status_gradient"/>
+</RelativeLayout>

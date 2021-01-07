@@ -1,0 +1,219 @@
+/*
+ * Copyright (c) 2017 Yrom Wang <http://www.yrom.net>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.jx.jzrecord.recording;
+
+import android.media.MediaCodec;
+import android.media.MediaFormat;
+import android.os.Looper;
+import android.util.Log;
+
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.util.Objects;
+
+/**
+ * @author yrom
+ * @version 2017/12/4
+ */
+abstract class BaseEncoder implements Encoder {
+    private String mCodecName;
+    private MediaCodec mEncoder;
+    private Callback mCallback;
+    static abstract class Callback implements Encoder.Callback {
+        void onInputBufferAvailable(BaseEncoder encoder, int index) {
+        }
+
+        void onOutputFormatChanged(BaseEncoder encoder, MediaFormat format) {
+        }
+
+        void onOutputBufferAvailable(BaseEncoder encoder, int index, MediaCodec.BufferInfo info) {
+        }
+    }
+
+    BaseEncoder() {
+    }
+
+    BaseEncoder(String codecName) {
+        this.mCodecName = codecName;
+    }
+
+    @Override
+    public void setCallback(Encoder.Callback callback) {
+        if (!(callback instanceof Callback)) {
+            throw new IllegalArgumentException();
+        }
+        this.setCallback((Callback) callback);
+    }
+
+    void setCallback(Callback callback) {
+        if (this.mEncoder != null) throw new IllegalStateException("mEncoder is not null");
+        this.mCallback = callback;
+    }
+
+    /**
+     * Must call in a worker handler thread!
+     */
+    @Override
+    public void prepare() throws IOException {
+        if (Looper.myLooper() == null
+                || Looper.myLooper() == Looper.getMainLooper()) {
+            throw new IllegalStateException("should run in a HandlerThread");
+        }
+        if (mEncoder != null) {
+            throw new IllegalStateException("prepared!");
+        }
+        MediaFormat format = createMediaFormat();
+        Log.w("TAGBaseEncoder", "Create media format: " + format);
+
+        String mimeType = format.getString(MediaFormat.KEY_MIME);
+                 // 找到视频轨道，并创建MediaCodec解码器
+        final MediaCodec encoder = createEncoder(mimeType);
+        try {
+            if (this.mCallback != null) {
+                // NOTE: MediaCodec maybe crash on some devices due to null callback
+                //执行mCallback对象的的回调函数
+                encoder.setCallback(mCodecCallback);  //回调函数在ScreenRecorder重写了
+            }
+            encoder.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE);
+            onEncoderConfigured(encoder);
+            //编码器开始工作
+            encoder.start();
+        } catch (MediaCodec.CodecException e) {
+            Log.e("TAGEncoder", "Configure codec failure!\n  with format" + format, e);
+            throw e;
+        }
+        mEncoder = encoder;
+    }
+
+    /**
+     * call immediately after {@link #getEncoder() MediaCodec}
+     * configure with {@link #createMediaFormat() MediaFormat} success
+     *
+     * @param encoder
+     */
+    protected void onEncoderConfigured(MediaCodec encoder) {
+    }
+
+    /**
+     * create a new instance of MediaCodec
+     */
+    private MediaCodec createEncoder(String type) throws IOException {
+        try {
+            // use codec name first
+            if (this.mCodecName != null) {
+                return MediaCodec.createByCodecName(mCodecName);
+            }
+        } catch (IOException e) {
+            Log.w("@@", "Create MediaCodec by name '" + mCodecName + "' failure!", e);
+        }
+        return MediaCodec.createEncoderByType(type);
+    }
+
+    /**创建编码格式
+     * create {@link MediaFormat} for {@link MediaCodec}
+     */
+    protected abstract MediaFormat createMediaFormat();
+
+    //获得编码器
+    protected final MediaCodec getEncoder() {
+        return Objects.requireNonNull(mEncoder, "doesn't prepare()");
+    }
+
+    /**获取编码后输出缓冲区的数据(一帧）
+     * @throws NullPointerException if prepare() not call
+     * @see MediaCodec#getOutputBuffer(int)
+     */
+    public final ByteBuffer getOutputBuffer(int index) {
+        return getEncoder().getOutputBuffer(index);
+    }
+
+
+    /**获取编码器的输入缓冲区（编码器有绑定输入源，就有未编码的原数据）
+     * @throws NullPointerException if prepare() not call
+     * @see MediaCodec#getInputBuffer(int)
+     */
+    public final ByteBuffer getInputBuffer(int index) {
+        return getEncoder().getInputBuffer(index);
+    }
+
+    /**编码输入缓冲区的原始数据
+     * @throws NullPointerException if prepare() not call
+     * @see MediaCodec#queueInputBuffer(int, int, int, long, int)
+     * @see MediaCodec#getInputBuffer(int)
+     */
+    public final void queueInputBuffer(int index, int offset, int size, long pstTs, int flags) {
+        getEncoder().queueInputBuffer(index, offset, size, pstTs, flags);
+    }
+
+    /**释放编码后的输出缓冲区
+     * @throws NullPointerException if prepare() not call
+     * @see MediaCodec#releaseOutputBuffer(int, boolean)
+     */
+    public final void releaseOutputBuffer(int index) {
+        getEncoder().releaseOutputBuffer(index, false);
+    }
+
+    /**
+     * @see MediaCodec#stop()
+     */
+    @Override
+    public void stop() {
+        if (mEncoder != null) {
+            mEncoder.stop();
+        }
+    }
+
+    /**
+     * @see MediaCodec#release()
+     */
+    @Override
+    public void release() {
+        if (mEncoder != null) {
+            mEncoder.release();
+            mEncoder = null;
+        }
+    }
+
+    /**
+     * let media codec run async mode if mCallback != null
+     */
+    private MediaCodec.Callback mCodecCallback = new MediaCodec.Callback() {
+        //回调接收输入缓冲区的编码前的原始数据
+        @Override
+        public void onInputBufferAvailable(MediaCodec codec, int index) {
+            mCallback.onInputBufferAvailable(BaseEncoder.this, index);
+        }
+
+        //回调接收输出缓冲区的编码后的数据
+        @Override
+        public void onOutputBufferAvailable(MediaCodec codec, int index, MediaCodec.BufferInfo info) {
+            mCallback.onOutputBufferAvailable(BaseEncoder.this, index, info);
+        }
+
+        @Override
+        public void onError(MediaCodec codec, MediaCodec.CodecException e) {
+            mCallback.onError(BaseEncoder.this, e);
+        }
+
+        @Override
+        public void onOutputFormatChanged(MediaCodec codec, MediaFormat format) {
+            mCallback.onOutputFormatChanged(BaseEncoder.this, format);
+        }
+    };
+
+
+}

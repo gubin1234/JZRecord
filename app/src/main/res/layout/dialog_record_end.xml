@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog"
+    android:orientation="vertical">
+    <!--录制结束弹窗-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+        <TextView
+            android:id="@+id/video_params"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="录制结束"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    <!--分割线-->
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/title_layout"
+        android:background="@color/setting_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
+        <!--录制内容展示-->
+        <RelativeLayout
+            android:id="@+id/layout_file_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_centerHorizontal="true">
+            <RelativeLayout
+                android:id="@+id/layout_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+                <ImageView
+                    android:id="@+id/img_thumb"
+                    android:layout_width="280dp"
+                    android:layout_height="157dp"
+                    android:layout_centerHorizontal="true" />
+                <ImageView
+                    android:id="@+id/img_play"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/play_file" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/video_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:layout_below="@+id/layout_pic"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_alignLeft="@+id/layout_pic"
+                android:layout_toLeftOf="@+id/img_share"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/img_share"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_below="@+id/layout_pic"
+                android:layout_marginTop="20dp"
+                android:layout_toLeftOf="@+id/img_delete"
+                android:src="@drawable/share_file" />
+            <ImageView
+                android:id="@+id/img_delete"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_alignRight="@+id/layout_pic"
+                android:layout_below="@+id/layout_pic"
+                android:src="@drawable/delete_file" />
+        </RelativeLayout>
+
+        <!--等待加载展示-->
+        <RelativeLayout
+            android:id="@+id/layout_wait"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ProgressBar
+                android:id="@+id/mProgressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_below="@+id/mProgressBar"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="正在保存视频，请稍等..."
+                android:textSize="18dp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

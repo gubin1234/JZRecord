@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog">
+    <TextView
+        android:id="@+id/tv_delete_title"
+        android:text="删除"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="16dp"
+        android:textColor="@color/TestColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_question"
+        android:text="你确定在列表中删除该视频吗？"
+        android:layout_below="@+id/tv_delete_title"
+        android:layout_centerHorizontal="true"
+        android:textSize="12dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/TestColor"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/cb_delete"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/tv_question"
+            android:layout_alignLeft="@id/tv_question"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="-8dp"
+            android:layout_marginTop="7dp"
+            android:scaleX="0.6"
+            android:scaleY="0.6" />
+        <TextView
+            android:id="@+id/tv_delete_local_file"
+            android:layout_toRightOf="@+id/cb_delete"
+            android:layout_below="@id/tv_question"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="1dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color"
+            android:textSize="10sp"
+            android:text="同时删除本地文件"/>
+    <Button
+        android:id="@+id/btn_cancel_delete_file"
+        android:layout_below="@+id/tv_delete_local_file"
+        android:layout_toLeftOf="@+id/btn_certain_delete_file"
+        android:layout_marginRight="20dp"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:text="取消"
+        android:textSize="12dp"
+        android:background="@color/white"
+        android:textColor="@color/text_color"
+        android:stateListAnimator="@null"/>
+
+    <Button
+        android:id="@+id/btn_certain_delete_file"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/tv_delete_local_file"
+        android:layout_alignRight="@+id/tv_question"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:text="确定"
+        android:textColor="@color/orange"
+        android:stateListAnimator="@null"
+        android:textSize="12dp" />
+</RelativeLayout>
